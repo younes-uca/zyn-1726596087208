@@ -1,0 +1,253 @@
+<div class="body1">
+    <div class="body">
+        <div class="header">
+            <app-top></app-top>
+        </div>
+        <div class="home flex flex-row align-items-center justify-content-center">
+            <div class="icons">
+                <img class="spring" src="assets/layout/images/spring.svg">
+                <img class="react" src="assets/layout/images/react.png">
+            </div>
+            <div class="flex flex-column justify-content-center align-items-center title">
+                <h1 style="color: white;">Your One-Stop Solution for <br> Generating Customized Application!</h1>
+                <!--<div class="h1 text-center" >
+                    <p>Our generator supports,<br> For Back-end: Spring,DotNet ,Laravel and Next JS <br>
+                        For Front-end: Angular, React, Next and React Native.</p><br>
+                </div>-->
+                <button class="button--janus mt-5" [routerLink]="['/admin/login']"><span>Get Started</span></button>
+            </div>
+            <div class="icons">
+                <img class="dotnet" src="assets/layout/images/dotnet.svg">
+                <img class="angular" src="assets/layout/images/angular.webp">
+            </div>
+        </div>
+        <!--<div class="h1">
+        <button class="p-tabview-nav-btn hh  m-2 " [routerLink]="['/login']">Get Started  <i class="pi pi-arrow-right"></i></button>
+        <button class="Watch m-2">Watch demo <i class="pi pi-caret-right"></i></button>
+        </div>-->
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="rgb(7, 15, 30)" fill-opacity="1"
+              d="M0,96L40,128C80,160,160,224,240,224C320,224,400,160,480,149.3C560,139,640,181,720,170.7C800,160,880,96,960,106.7C1040,117,1120,203,1200,218.7C1280,235,1360,181,1400,154.7L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+    </svg>
+</div>
+
+<div class="main">
+    <app-main></app-main>
+</div>
+
+<footer>
+    <app-footer></app-footer>
+</footer>
+
+<!--
+<div class="body" id="demo" style="display:flex;padding:20px;">
+    <img class="m-50 h-50" src="assets/layout/images/vedioPhoto.png" alt="My App vedio" style="border-radius:3px;width: 80%;"/>
+</div>
+
+<div class="body " style="display:flex;padding:20px;">
+    <p style="color:white;text-align: center;">Trusted by Developers WorldWide</p>
+</div>
+
+<div class="body " style="display:flex;padding:20px;">
+    <img class="m-10 h-50" src="assets/layout/images/cerclelogo.png" alt="logo" style="border-radius:3px;width: 20%;"/>
+</div>
+
+<div class="body " id="generate" style="display:flex;padding:20px;">
+    <p style="color:white;text-align: center;">How it works</p>
+</div>
+<div class="body " style="display:flex;padding:20px;">
+ <h1 style="color:white;">Generate your Application in 1 minute.</h1>
+</div>
+<div class="body " style="display:flex;padding:20px;">
+    <button class="p-tabview-nav-btn hh  m-2 " [routerLink]="['/login']">Get Started  <i class="pi pi-arrow-right"></i></button>
+</div>
+
+
+<div class="body flex flex-wrap column-gap-4 row-gap-6 mt-10" style="display:flex;padding:20px;height:70vh;">
+    <div class="text-center  border-round w-17rem h-10rem  font-bold  align-items-center justify-content-center m-10">
+        <h1 style="color:white" class="flex align-items-start flex-wrap justify-content-center mb-0">01</h1><br>
+        <h3 style="color:white;margin-left:4vh;" class="flex align-items-center flex-wrap">Set up GitHup</h3><br>
+        <p  style="color:gray" >Generate token and create an empty repository</p><br>
+    </div>
+    <div class="text-center border-round w-17rem h-10rem  font-bold  align-items-center justify-content-center m-10">
+        <h1 style="color:white"  class="flex align-items-start flex-wrap justify-content-center mb-0">02</h1><br>
+        <h3 style="color:white;margin-left:4vh;"  class="flex align-items-center flex-wrap">Conceptualization</h3><br>
+        <p  style="color:gray">Provide your entities and the associated attributes</p><br>
+    </div>
+    <div class="text-center border-round w-17rem h-10rem  font-bold  align-items-center justify-content-center m-10">
+        <h1 style="color:white"  class="flex align-items-start flex-wrap justify-content-center mb-0">03</h1><br>
+        <h3 style="color:white;margin-left:4vh;"  class="flex align-items-center flex-wrap">Click on Generate</h3><br>
+        <p style="color:gray">Once your conceptualization is valid the project will be generated</p><br>
+    </div>
+    <div class="text-center border-round w-17rem h-10rem  font-bold  align-items-center justify-content-center m-10">
+        <h1 style="color:white"  class="flex align-items-start flex-wrap justify-content-center mb-0">04</h1><br>
+        <h3 style="color:white;margin-left:4vh;"  class="flex align-items-center flex-wrap">Check GitHub</h3><br>
+        <p  style="color:gray">The generated project will be pushed to your empty repository</p><br>
+    </div>
+</div>
+<div class="body " style="display:flex;padding:20px;">
+    <p style="color:white;text-align: center;">Supported Frameworks</p>
+</div>
+<div class="body " style="display:flex;padding:20px;">
+    <h1 style="color:white;">"From Idea to App in a Snap: <br> Tech-Driven Solutions,Lightning Fast!"</h1>
+</div>
+
+<div class="body1 justify-content-center md:top-100">
+<div class="body flex flex-wrap column-gap-4 row-gap-6" style="display:flex;padding:20px;width:111vh;">
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/Angular.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">Angular</h5>
+            <p style="color:gray;font-size: .75rem;">Front-end</p>
+        </div>
+    </div>
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/reactjs-ar21.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">React</h5>
+            <p style="color:gray;font-size: .75rem;">Front-end</p>
+        </div>
+    </div>
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/nextjs.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">Next.Js</h5>
+            <p style="color:gray;font-size: .75rem;">Front-end</p>
+        </div>
+    </div>
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/react-native-1.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">R.Native</h5>
+            <p style="color:gray;font-size: .75rem;">Front-end</p>
+        </div>
+    </div>
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/springio-ar21.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">Spring</h5>
+            <p style="color:gray;font-size: .75rem;">Back-end</p>
+        </div>
+    </div>
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/dotnet.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">DotNet</h5>
+            <p style="color:gray;font-size: .75rem;">Back-end</p>
+        </div>
+    </div>
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/Laravel.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">Laravel</h5>
+            <p style="color:gray;font-size: .75rem;">Back-end</p>
+        </div>
+    </div>
+    <div class="border-round bg-bluegray-800 w-12rem h-6rem font-bold flex align-items-center justify-content-center">
+        <img src="assets/layout/images/nestjs.svg" alt="My App Logo" class="w-5rem h-4rem"/>
+        <div class="flex flex-column justify-content-center ml-2">
+            <h5 style="color:white">NestJs</h5>
+            <p style="color:gray;font-size: .75rem;">Back-end</p>
+        </div>
+    </div>
+</div>
+</div>
+<div class="body " id="features" style="display:flex;padding:20px;">
+    <p style="color:gray;text-align: center;">Features</p>
+</div>
+<div class="body " style="display:flex;padding:20px;">
+    <h1 style="color:white;">"Unlock Innovation, Code with Confidence!"</h1>
+</div>
+<div class="body1 justify-content-center md:top-100">
+    <div class="body flex flex-wrap column-gap-4 row-gap-6" style="display:flex;padding:20px;width:100vh;">
+        <div class="border-round bg-bluegray-800 w-20rem h-15rem font-bold flex flex-column">
+            <img src="assets/layout/images/imgZ1.png" alt="My App Logo" class="w-14rem h-8rem align-self-end"/>
+            <div class="flex flex-column justify-content-end ml-2 mt-5">
+                <h5 style="color:white; margin-top: auto;">Microservices architecture</h5>
+            </div>
+        </div>
+
+        <div class="border-round bg-bluegray-800 w-20rem h-15rem font-bold flex flex-column">
+            <img src="assets/layout/images/imgZ2.png" alt="My App Logo" class="w-14rem h-8rem align-self-end"/>
+            <div class="flex flex-column justify-content-center ml-2 mt-5">
+                <h5 style="color:white">Full stack Application</h5>
+                <p style="color:gray;font-size: .75rem;">(Web/Mobile & Back end)</p>
+            </div>
+        </div>
+        <div class="border-round bg-bluegray-800 w-20rem h-15rem font-bold flex flex-column">
+            <img src="assets/layout/images/imgZ3.png" alt="My App Logo" class="w-14rem h-8rem align-self-end"/>
+            <div class="flex flex-column justify-content-center ml-2 mt-5">
+                <h5 style="color:white">Adapted generated code</h5>
+                <p style="color:gray;font-size: .75rem;">(Junior,Senior and Architect)</p>
+            </div>
+        </div>
+        <div  class="border-round bg-bluegray-800 w-20rem h-15rem font-bold flex flex-column">
+            <img src="assets/layout/images/imgZ4.png" alt="My App Logo" class="w-14rem h-8rem align-self-end"/>
+            <div class="flex flex-column justify-content-center ml-2 mt-5">
+                <h5 style="color:white">Unit,Integration and Functionality Testing</h5>
+            </div>
+        </div>
+        <div  class="border-round bg-bluegray-800 w-20rem h-15rem font-bold flex flex-column">
+            <img src="assets/layout/images/imgZ5.png" alt="My App Logo" class="w-14rem h-8rem align-self-end"/>
+            <div class="flex flex-column justify-content-center ml-2 mt-5">
+                <h5 style="color:white">Database migration and Fake data</h5>
+
+            </div>
+        </div>
+        <div  class="border-round bg-bluegray-800 w-20rem h-15rem font-bold flex flex-column">
+            <img src="assets/layout/images/imgZ6.png" alt="My App Logo" class="w-14rem h-8rem align-self-end"/>
+            <div class="flex flex-column justify-content-center ml-2 mt-5">
+                <h5 style="color:white">Ready to deploy App</h5>
+                <p style="color:gray;font-size: .75rem;">(Dokcer/Docker compose)</p>
+            </div>
+        </div>
+</div>
+</div>
+<div class="body " style="display:flex;padding:20px;">
+    <p style="color:gray;text-align: center;">Testimonials</p>
+</div>
+<div class="body " style="display:flex;padding:20px;">
+    <h2 style="color:white;">Don't take our word for it</h2>
+</div>
+<div class="body1 justify-content-center md:top-100 h-24rem">
+    <div class="body flex flex-wrap column-gap-4 row-gap-6" style="display:flex;width:150vh;">
+        <div class="border-round bg-bluegray-800 w-40rem h-18rem font-bold flex flex-column p-6">
+            <div class="flex flex-column justify-content-center text-left">
+                <p>"As an It architect, Zynerator has streamlined our<br> development processes, ensuring scalability  and afficiency.<br> Its multi-framework support and microservices capabilities <br>have elevated our coding standard and saved us valuable <br>time."</p>
+            </div>
+            <div class="flex justify-content-between mt-5">
+        <pre class="flex align-items-center">
+            <img src="assets/layout/images/cerclelogo.png" alt="My App Logo" class="w-5rem h-3rem align-self-start"/>
+            <p class="ml-2">Zouani Kamal <br> Co-Founder&CEO</p>
+        </pre>
+            </div>
+        </div>
+        <div class="border-round bg-bluegray-800 w-40rem h-18rem font-bold flex flex-column p-6">
+            <div class="flex flex-column justify-content-center text-left">
+                <p>"Zynerator has revolutionized our workflow, empowering my <br> team to deliver exceptional results with speed and precision. <br> Its seamless integration across freameworks and robust  <br> support for microservices have made it an indispensable<br>asset in our development toolkit."</p>
+            </div>
+            <div class="flex justify-content-between mt-5">
+        <pre class="flex align-items-center">
+            <img src="assets/layout/images/logocercle2.png" alt="My App Logo" class="w-5rem h-3rem align-self-start"/>
+            <p class="ml-2">John Brudski<br> Co-Founder&CTO</p>
+        </pre>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="body " style="display:flex;">
+    <img class="m-10 h-50" src="assets/layout/images/zyn.PNG" alt="logo" style="border-radius:3px;width: 11%;"/>
+</div>
+
+<div class="body " style="display:flex;">
+    <h1 style="color:white;">Generate your next App in a minute</h1>
+</div>
+<div class="body " style="display:flex;">
+    <p style="color:white;text-align: center;">Try Zenerator and see for yourself.</p>
+</div>
+<div class="body " style="display:flex;padding-bottom: 20vh">
+    <button class="p-tabview-nav-btn hh  m-2 " [routerLink]="['/login']">Get Started  <i class="pi pi-arrow-right"></i></button>
+</div>
+-->

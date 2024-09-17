@@ -1,0 +1,87 @@
+.titre{
+    font-family: "Fira Code", monospace;
+}
+
+.hide{
+    opacity: 0;
+}
+
+.show{
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.steps{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 50rem;
+    position: relative;
+}
+
+.step1{
+    position: absolute;
+    right: 0;
+    margin-bottom: 10px;
+    margin-top: 5rem !important;
+    border: 0 ;
+    border-radius: 10px;
+    background-color: rgb(7, 15, 30);
+    width: 20rem;
+}
+
+.step1 h1,h3,p{
+    font-family: "Fira Code", monospace;
+    color: white;
+}
+
+
+.steps .step2{
+    position: absolute;
+    left: 0;
+    margin-bottom: 10px;
+    margin-top: 15rem !important;
+    background-color: rgb(7, 15, 30);
+    border: 0 ;
+    border-radius: 10px;
+    width: 20rem;
+}
+
+.step2 h1,h3,p{
+    font-family: "Fira Code", monospace;
+    color: white;
+}
+
+
+.steps .step3{
+    position: absolute;
+    right: 0;
+    margin-bottom: 10px;
+    margin-top: 25rem !important;
+    background-color: rgb(7, 15, 30);
+    border: 0 ;
+    border-radius: 10px;
+    width: 20rem;
+}
+
+.step3 h1,h3,p{
+    font-family: "Fira Code", monospace;
+    color: white;
+}
+
+.steps .step4{
+    position: absolute;
+    left: 0;
+    margin-bottom: 10px;
+    margin-top: 35rem !important;
+    background-color: rgb(7, 15, 30);
+    border: 0 ;
+    border-radius: 10px;
+    width: 20rem;
+}
+
+.step4 h1,h3,p{
+    font-family: "Fira Code", monospace;
+    color: white;
+}
+

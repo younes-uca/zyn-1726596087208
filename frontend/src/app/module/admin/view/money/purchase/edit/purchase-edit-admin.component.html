@@ -1,0 +1,143 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'purchase.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'purchase.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'purchase.reference' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'purchase.reference' | translate}}" id="1" [(ngModel)]="item.reference"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPurchaseReference}"  />
+                                            <small class='p-error' *ngIf='!validPurchaseReference'>Reference est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'purchase.purchaseDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'purchase.purchaseDate' | translate}}"  [(ngModel)]="item.purchaseDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'purchase.image' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'purchase.image' | translate}}" id="3" [(ngModel)]="item.image"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'purchase.total' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'purchase.total' | translate}}" [(ngModel)]="item.total"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'purchase.description' | translate}}</label>
+                                            <textarea id="5" pInputTextarea rows="5" cols="30" placeholder="{{'purchase.description' | translate}}"  [(ngModel)]="item.description"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="7">{{'purchase.purchaseState' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="purchaseStates" [(ngModel)]="item.purchaseState" id="7" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'purchase.purchaseState' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field align-inputswitch col-12  md:col-6">
+                                            <div  class="label-inputswitch">
+                                                <label for="8">{{'purchase.enabled' | translate}}</label>
+                                            </div>
+                                            <div class="input-switch">
+                                                <p-inputSwitch id="8"  [(ngModel)]="item.enabled"
+                                                                >
+                                                </p-inputSwitch>
+                                                
+                                            </div>
+                                        </div>
+
+
+                        </div>
+                    </p-tabPanel>
+                            <p-tabPanel header="{{'purchase.purchaseItems' | translate}}">
+                                        <div class="p-col">
+                                            <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Product<span style="color: red;">*</span></label>
+                                                                <p-dropdown  appendTo="body"  [options]="products" [(ngModel)]="purchaseItemsElement.product"
+                                                                             id="1"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="reference"
+                                                                             placeholder="Product"  [ngClass]="{'ng-invalid ng-dirty' : !validPurchaseItemsProduct}" >
+                                                                </p-dropdown>
+                                                                <small class='p-error' *ngIf='!validPurchaseItemsProduct'>Product est obligatoire.</small>
+                                                            </div>
+
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="2">Price<span style="color: red;">*</span></label>
+                                                                <p-inputNumber class="mb-2 mr-2" id="price" placeholder="Price"  [ngClass]="{'ng-invalid ng-dirty' : !validPurchaseItemsPrice}" [(ngModel)]="purchaseItemsElement.price"></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validPurchaseItemsPrice'>Price est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Quantity<span style="color: red;">*</span></label>
+                                                                <p-inputNumber class="mb-2 mr-2" id="quantity" placeholder="Quantity"  [ngClass]="{'ng-invalid ng-dirty' : !validPurchaseItemsQuantity}" [(ngModel)]="purchaseItemsElement.quantity"></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validPurchaseItemsQuantity'>Quantity est obligatoire.</small>
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addPurchaseItems()"></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="p-col">
+                                            <div class="card">
+                                                <p-table [value]="item.purchaseItems" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Product</th>
+                                                                        <th>Price</th>
+                                                                        <th>Quantity</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.product?.reference}}</td>
+                                                                        <td>{{p.price}}</td>
+                                                                        <td>{{p.quantity}}</td>
+                                                            <td>
+                                                                <button (click)="deletePurchaseItems(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editPurchaseItems(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                        </div>
+                            </p-tabPanel>
+
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

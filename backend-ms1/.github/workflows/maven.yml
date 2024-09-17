@@ -1,0 +1,36 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Compile with Maven
+        run: mvn compile
+        working-directory: backend-ms1
+
+      - name: Run Unit Tests with Maven
+        run: mvn test
+        working-directory: backend-ms1
+
+      - name: Run Package with Maven
+        run: mvn clean package
+        working-directory: backend-ms1
+
+      - name: Run Deploy with Docker
+        run: docker compose up -d
+        working-directory: deploy

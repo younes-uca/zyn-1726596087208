@@ -1,0 +1,37 @@
+<p-toast></p-toast>
+<div class="body">
+    <div class="signUp">
+        <h1>Hello👋!</h1>
+        <p>If you don't have an account,<br>
+            create it from here </p>
+        <button class="signUpBtn bg-orange-500" id="register" (click)="register()"><i class="pi pi-user"></i> Register</button>
+        <button class=" signUpBtn-home" [routerLink]="['/home']"><span><i class="pi pi-home"></i></span> Home</button>
+        <img src="assets/layout/login/undraw_login_re_4vu2.svg">
+    </div>
+
+    <form (ngSubmit)="activateAccount()" class="form-login">
+        <div class="activation-message">
+            <p>This page is for account activation. Please check your email for the activation code.</p>
+        </div>
+        <h1>Activation</h1>
+        <div class="username">
+             <input id="username" type="text" [(ngModel)]="activationDto.username" name="username" required>
+             <label for="username">Username</label>
+         </div>
+        <div class="password">
+             <input id="activationCode" type="text" [(ngModel)]="activationDto.activationCode" name="activationCode" required>
+             <label for="activationCode">Activation Code</label>
+         </div>
+         <div class="login" style="justify-content: center;">
+            <button class="submit bg-orange-500" type="submit" style="border:1px solid#000;">Activate</button>
+        </div>
+        <div class="resendCode">
+            <div>
+                <p>If you need a new verification code, please click on the button below:</p>
+            </div>
+            <div class="submit-code">
+                <button class="submit bg-black" type="button" (click)="resendActivationCode()">Resend Code</button>
+            </div>
+        </div>
+    </form>
+</div>

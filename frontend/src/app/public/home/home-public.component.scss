@@ -1,0 +1,333 @@
+.body {
+    background-color: rgb(7, 15, 30);
+    height: 50vh;
+    justify-content: center;
+    position: relative;
+}
+
+.body1 {
+    height: 90vh;
+    top:0;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(7, 15, 30);
+    z-index: 9;
+}
+
+.home {
+    padding-top: 5rem;
+}
+
+.flex.bg-bla {
+    display: flex;
+    background-color: black;
+
+}
+
+.border-round p {
+    font-weight: 300;
+}
+
+.h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.bg-bla {
+    background-color: black;
+
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.navbar-logo img {
+    height: 50px;
+    display: flex;
+}
+
+.navbar-links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin-right: 1rem;
+}
+
+.navbar-links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hh1 {
+    border: none;
+    color: #ffffff;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    border-radius: 20px;
+    position: relative;
+    width: 110px;
+
+}
+
+p {
+    color: white;
+
+}
+
+.hh {
+    background-color: #ffffff;
+    border: none;
+    color: #1a1a1a;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.Watch {
+    background-color: #1a1a1a;
+    border: 2px solid white;
+    color: white;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.Watch.pi {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    margin-left: 2px;
+}
+
+.p-tabview-nav-btn.hh1 .pi {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    margin-left: 2px;
+}
+
+.p-tabview-nav-btn.active {
+    position: fixed;
+    border-radius: 20px;
+}
+
+.home-button-text {
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .navbar-logo {
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .navbar-actions {
+        justify-content: flex-end;
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+    .navbar-logo {
+        font-size: 14px;
+    }
+}
+
+/* layoutscc */
+
+.layout-topbar-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+        color: var(--text-color);
+        border: 1px solid var(--surface-hover);
+    }
+
+    &:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        transition: box-shadow .2s;
+        box-shadow: var(--focus-ring);
+        background-color: black;
+    }
+
+    i {
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    span {
+        font-size: 1rem;
+        display: none;
+    }
+}
+
+//footer
+
+.colum {
+    flex: 1;
+    padding: 0 0 0 0;
+}
+
+.white {
+    color: white;
+    margin: 2vh;
+}
+
+
+.space {
+    width: 87vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rem;
+    height: 60px;
+    width: 60px;
+}
+
+.icons img {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.icons .spring {
+    margin-right: 20rem;
+}
+
+.icons .react {
+    margin: 6rem 12rem;
+}
+
+.icons .dotnet {
+    margin-left: 20rem;
+}
+
+.icons .angular {
+    margin: 5rem 0 0 9rem;
+    width: 70px;
+    height: 70px;
+}
+
+.title {
+    text-align: center;
+    margin-top: 50px;
+    font-family: "Fira Code", monospace;
+}
+
+.button--janus {
+    font-weight: 900;
+    width: 175px;
+    height: 120px;
+    color: #fff;
+    background: none;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: "Fira Code", monospace;
+    cursor: pointer;
+}
+
+.button--janus::before {
+    content: '';
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z");
+    clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z");
+    transition: clip-path 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55), background 0.5s ease;
+}
+
+.button--janus:hover::before {
+    background: #fff;
+    -webkit-clip-path: path("M143,77 C117,96 74,100.5 45.5,91.5 C17,82.5 -10.5,57 5.5,31.5 C21.5,6 79,-5.5 130.5,4 C182,13.5 169,58 143,77 Z");
+    clip-path: path("M143,77 C117,96 74,100.5 45.5,91.5 C17,82.5 -10.5,57 5.5,31.5 C21.5,6 79,-5.5 130.5,4 C182,13.5 169,58 143,77 Z");
+}
+
+.button--janus::after {
+    content: '';
+    height: 86%;
+    width: 97%;
+    top: 5%;
+    border-radius: 58% 42% 55% 45% / 56% 45% 55% 44%;
+    border: 1px solid white;
+    transform: rotate(-20deg);
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transition: transform 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55);
+}
+
+.button--janus:hover::after {
+    transform: translate3d(0, -5px, 0);
+}
+
+.button--janus span {
+    display: block;
+    transition: transform 0.3s ease;
+    mix-blend-mode: difference;
+    position: relative;
+    z-index: 1;
+}
+
+.button--janus:hover span {
+    transform: translate3d(0, -10px, 0);
+}
+
+/* Fallback for browsers that do not support clip-path: path() */
+@supports not (clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z")) {
+    .button--janus::before, .button--janus:hover::before {
+        -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+}

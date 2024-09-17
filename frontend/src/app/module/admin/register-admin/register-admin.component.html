@@ -1,0 +1,53 @@
+<p-toast></p-toast>
+
+<div class="signIn">
+    <form (ngSubmit)="submit()">
+        <h1>Create Account</h1>
+        <!-- <div class="social-icons">
+                <a href="#" class="icon"><img src="assets/layout/images/google.webp" style="width: 4rem; height: 4rem"></a>
+                <a href="#" class="icon"><img src="https://imgs.search.brave.com/b1qzWLZiN4Dm3HPkkcOxdae80mpuTE1g_1Yd1WivZrI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzMyLzIwLzAz/LzM2MF9GXzUzMjIw/MDM1NV9vZEtOOU91/M1dCNmlIV0pURklF/bEZ0SmJUdXpKc3BZ/Ni5qcGc" alt="" style="width: 30px; height: 30px;"></a>
+                <a href="#" class="icon"><img src="assets/layout/images/github.png" style="width: 3.3rem; height: 3.3rem"></a>
+                <a href="#" class="icon"><img src="https://imgs.search.brave.com/AMNOWNlys6t-LdYxrRSfVYYcAHVqt8duRtLNuSfZ334/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4w/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvc2hpZnQtbG9n/b3R5cGVzLzMyL0xp/bmtlZGluLTEyOC5w/bmc" alt="" style="width: 30px; height: 30px;"></a>
+            </div>
+        <span>you can create it manually</span>-->
+        <div class="firstName">
+            <input type="text" id="firstName" [(ngModel)]="registerDto.firstName" name="firstName" required>
+            <label for="firstName">First Name</label>
+        </div>
+        <div class="lastName">
+            <input type="text" id="lastName" [(ngModel)]="registerDto.lastName" name="lastName" required>
+            <label for="lastName">Last Name</label>
+        </div>
+        <div class="email">
+            <input type="email" id="email" [(ngModel)]="registerDto.email" name="email" required>
+            <label for="email">Email</label>
+        </div>
+        <div class="phone">
+            <input type="number" id="phone" [(ngModel)]="registerDto.phone" name="phone" required>
+            <label for="phone">Phone</label>
+        </div>
+        <div class="userName">
+            <input type="text" id="userName" [(ngModel)]="registerDto.username" name="username" required>
+            <label for="userName">Username</label>
+        </div>
+        <div class="password">
+            <input type="password" id="password" [(ngModel)]="registerDto.password" name="password" required>
+            <label for="password">Password</label>
+        </div>
+        <div class="div-btn">
+            <button class="submit" type="submit">Sign Up</button>
+        </div>
+    </form>
+
+    <div class="toogle-left">
+        <h1>Great🎉!</h1>
+        <p>After you have created an account <br>
+            Go back and Sign in</p>
+        <button class="singInBtn bg-orange-500" id="login" (click)="login()"><i class="pi pi-user"></i> Go Login</button>
+        <br>
+        <button class="back" [routerLink]="['/home']"><span><i class="pi pi-home"></i></span>Go Home</button>
+        <div class="icon">
+            <img src="assets/layout/login/undraw_agreement_re_d4dv.svg">
+        </div>
+    </div>
+</div>

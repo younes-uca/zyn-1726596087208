@@ -1,0 +1,35 @@
+/* Style for the preload-page element */
+.preload-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(7, 15, 30);
+}
+
+/* Style for the images */
+img {
+    width: 70px;
+    height: 70px;
+}
+
+/* Specific style for the #l image */
+#l {
+    width: 80px;
+    height: 80px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Styles for the home page transition */
+body.hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+body.visible {
+    opacity: 1;
+}

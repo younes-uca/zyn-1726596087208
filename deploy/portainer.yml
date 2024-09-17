@@ -1,0 +1,23 @@
+#docker-compose -f .\portainer.yml up --build -d
+version: '3.8'
+
+services:
+   # Portainer
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - "9000:9000"
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - app-network
+
+volumes:
+  portainer_data:
+
+networks:
+  app-network:
+    external: true

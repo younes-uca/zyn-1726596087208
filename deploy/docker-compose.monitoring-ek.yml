@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    hostname: prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - deploy-prod_app-network  # Corrected network name
+
+  grafana:
+    image: grafana/grafana
+    hostname: grafana
+    container_name: grafana
+    volumes:
+      - grafana-data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=secret
+    ports:
+      - "4000:3000"  # Using port 4000 instead of 3000 to avoid conflicts
+    networks:
+      - deploy-prod_app-network
+
+  elasticsearch:
+    image: elasticsearch:7.9.3
+    hostname: elasticsearch
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+    networks:
+      - deploy-dev_app-network
+
+  kibana:
+    image: kibana:7.9.3
+    hostname: kibana
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - deploy-dev_app-network
+
+volumes:
+  grafana-data:
+
+networks:
+  deploy-dev_app-network:
+    external: true

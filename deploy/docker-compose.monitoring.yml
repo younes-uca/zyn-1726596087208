@@ -1,0 +1,39 @@
+version: '3.8'
+# docker-compose -f docker-compose.monitoring.yml up -d
+# id grafana for spring 12900
+# Prometheus server URL http://prometheus:9090
+services:
+  prometheus:
+    image: prom/prometheus
+    hostname: prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./grafana/grafana-data:/var/lib/grafana
+    ports:
+      - "9090:9090"
+    networks:
+      - deploy_app-network
+
+  grafana:
+    image: grafana/grafana
+    hostname: grafana
+    container_name: grafana
+    volumes:
+      - ./grafana:/var/lib/grafana
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    ports:
+      - "4000:3000"
+    networks:
+      - deploy_app-network
+    depends_on:
+      - prometheus
+
+
+networks:
+  deploy_app-network:
+    external: true

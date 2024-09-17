@@ -1,0 +1,125 @@
+version: '3'
+# in visuale studio code "ctrl + shift + p " then use this "Convert Indentation to Spaces" : formatage
+services:
+  prometheus:
+    image: prom/prometheus
+    hostname: prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./grafana/grafana-data:/var/lib/grafana
+    ports:
+      - "9090:9090"
+    networks:
+      - app-network
+    depends_on:
+      - zyn1726596087208ms1-back
+
+  grafana:
+    image: grafana/grafana
+    hostname: grafana
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin # new pass is zyn@1987
+    volumes:
+      - ./grafana:/var/lib/grafana
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    ports:
+      - "4000:3000"  # Using port 4000 instead of 3000 to avoid conflicts
+    networks:
+      - app-network
+    depends_on:
+      - prometheus
+
+
+
+
+
+  front-end:
+    build: ../frontend
+    container_name: frontend
+    ports:
+      - '${FRONT_END_PORT}:80'
+    expose:
+      - '${FRONT_END_PORT}'
+    networks:
+      - app-network
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"  # Exposing pgAdmin on port 5050
+    depends_on:
+      - zyn1726596087208ms1-db
+    networks:
+      - app-network
+  zyn1726596087208ms1-db:
+    image: ${ZYN1726596087208MS1_DB_IMAGE_NAME}
+    container_name: ${ZYN1726596087208MS1_DB_CONTAINER_NAME}
+    volumes:
+      - zyn1726596087208ms1-data:/var/lib/mysql #postgre /var/lib/postgresql/data
+    ports:
+      - "${ZYN1726596087208MS1_DB_PORT}:3306" #postgre 5432
+    environment:
+      - MYSQL_DATABASE=${ZYN1726596087208MS1_DB_NAME} #POSTGRES_DB=${ZYN1724669534506MS1_DB_NAME}
+      - MYSQL_USER=${ZYN1726596087208MS1_DB_USER} #POSTGRES_USER=${ZYN1724669534506MS1_DB_USER}
+      - MYSQL_PASSWORD=${ZYN1726596087208MS1_DB_PASSWORD} #POSTGRES_PASSWORD=${ZYN1724669534506MS1_DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${ZYN1726596087208MS1_DB_PASSWORD_ROOT}
+    networks:
+      - app-network
+  phpmyadmin-zyn1726596087208ms1:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: ${ZYN1726596087208MS1_DB_CONTAINER_NAME}
+      MYSQL_ROOT_PASSWORD: ''
+    ports:
+      - "808:80"
+    depends_on:
+      - zyn1726596087208ms1-db
+    networks:
+      - app-network
+  zyn1726596087208ms1-back:
+    build:
+      context: ${ZYN1726596087208MS1_PROJECT_PATH}
+      dockerfile: DockerfileWithPackage
+    container_name: ${ZYN1726596087208MS1_CONTAINER_NAME}
+    image: ${ZYN1726596087208MS1_IMAGE_NAME}
+    ports:
+      - "${ZYN1726596087208MS1_BACK_PORT}:${ZYN1726596087208MS1_BACK_PORT}"
+    environment:
+      - ZYN1726596087208MS1_DB_URL=${ZYN1726596087208MS1_DB_URL}
+      - ZYN1726596087208MS1_DB_USER=${ZYN1726596087208MS1_DB_USER}
+      - ZYN1726596087208MS1_DB_PASSWORD=${ZYN1726596087208MS1_DB_PASSWORD}
+    depends_on:
+      - zyn1726596087208ms1-db
+    networks:
+      - app-network
+    restart: always
+  minio:
+    image: ${MINIO_IMAGE_NAME}
+    container_name: ${MINIO_CONTAINER_NAME}
+    restart: always
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - ./data/minio_data:/data
+    ports:
+      - "${MINIO_HOME_PORT}:9000"
+      - "${MINIO_URL_PORT}:9001" # tap localhost:9001 to access to minio
+    networks:
+      - app-network
+volumes:
+  zyn1726596087208ms1-data:
+networks:
+  app-network:
+    external: true # change external: true to driver: bridge
+

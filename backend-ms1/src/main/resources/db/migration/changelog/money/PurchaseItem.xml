@@ -1,0 +1,63 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="purchase_item">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="price" type="NUMERIC"/>
+        <column name="quantity" type="NUMERIC"/>
+
+        <column name="product_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="purchase_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="purchase_item"
+              baseColumnNames="product_id"
+              referencedTableName="product"
+              referencedColumnNames="id"
+              constraintName="fk_purchase_item_product"/>
+      <addForeignKeyConstraint
+              baseTableName="purchase_item"
+              baseColumnNames="purchase_id"
+              referencedTableName="purchase"
+              referencedColumnNames="id"
+              constraintName="fk_purchase_item_purchase"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="purchase_item_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/money/PurchaseItem.csv"
+            tableName="purchase_item">
+      <column name="id" type="NUMERIC"/>
+          <column name="price" type="NUMERIC"/>
+          <column name="quantity" type="NUMERIC"/>
+        <column name="product" type="BIGINT"/>
+        <column name="purchase" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>
